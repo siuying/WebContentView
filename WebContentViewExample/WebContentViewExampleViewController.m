@@ -35,7 +35,6 @@
     webContentView.content = [NSString stringWithContentsOfFile:
                               [[NSBundle mainBundle] pathForResource:@"content" ofType:@"html"]
                                                        encoding:NSUTF8StringEncoding error:NULL];
-    [webContentView setScrollEnabled:NO];
 }
 
 - (void)viewDidUnload
