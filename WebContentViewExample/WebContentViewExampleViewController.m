@@ -18,12 +18,12 @@
     NSString *styles = [[NSArray arrayWithObjects:@"", @"styles1", @"styles2", nil] objectAtIndex:sender.selectedSegmentIndex];
     if ([styles length])
     {
-        webContentView.styles = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:styles ofType:@"css"]
-                                                          encoding:NSUTF8StringEncoding error:NULL];
+        [WebContentView setSharedStyles:[NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:styles ofType:@"css"]
+                                                                  encoding:NSUTF8StringEncoding error:NULL]];
     }
     else
     {
-        webContentView.styles = @"";
+        [WebContentView setSharedStyles:@""];
     }
 }
 
@@ -35,6 +35,7 @@
     webContentView.content = [NSString stringWithContentsOfFile:
                               [[NSBundle mainBundle] pathForResource:@"content" ofType:@"html"]
                                                        encoding:NSUTF8StringEncoding error:NULL];
+    [webContentView setScrollEnabled:NO];
 }
 
 - (void)viewDidUnload
