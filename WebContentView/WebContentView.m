@@ -80,7 +80,9 @@ p, h1 { padding: 0; margin: 0 0 10px 0; }";
 + (void)initialize
 {
 	//'warm up' webkit
-	[[[UIWebView alloc] init] autorelease];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[[UIWebView alloc] init] autorelease];
+    });
 	
 	//register for cache clearing
     [[NSNotificationCenter defaultCenter] addObserver:self
